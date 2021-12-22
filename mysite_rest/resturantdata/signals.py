@@ -5,7 +5,7 @@ def updateUser(sender,instance,**kwargs):
     print("Signal Triggered")
     user=instance
     if user.email !='':
-       
-        user.username=user.email
+        if user.username =='':
+            user.username=user.email
 
 pre_save.connect(updateUser,sender=User)
